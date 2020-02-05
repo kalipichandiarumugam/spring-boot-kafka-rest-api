@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="d2kalip" id="1">
+        <createTable tableName="employees">
+            <column name="employeeId" type="int" autoIncrement="true">
+        <constraints nullable="false"/>
+    </column>
+        <column name="employeeName" type="varchar(255)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="dob" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="hiredDate" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+    <addPrimaryKey tableName="employees"
+                   columnNames="employeeId"
+                   constraintName="employees_pk"/>
+    </changeSet>
+    <changeSet author="d2kalip" id="2">
+        <createTable tableName="departments">
+            <column name="departmentId" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="departmentName" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="departments"
+                       columnNames="departmentId"
+                       constraintName="departments_pk"/>
+    </changeSet>
+    <changeSet author="d2kalip" id="4">
+        <createTable tableName="users">
+            <column name="user_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="users"
+                       columnNames="user_id"
+                       constraintName="users_pk"/>
+    </changeSet>
+</databaseChangeLog>
